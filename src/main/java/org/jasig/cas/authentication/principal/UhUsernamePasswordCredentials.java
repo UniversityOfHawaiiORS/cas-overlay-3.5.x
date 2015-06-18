@@ -33,20 +33,34 @@ import javax.validation.constraints.Size;
  * </p>
  */
 public class UhUsernamePasswordCredentials extends UsernamePasswordCredentials {
-    /** The username. */
+
+
     private String overrideUsername;
 
-    /**
-     * @return Returns the overrideUsername.
-     */
-    public final String getOverrideUsername() {
-        return this.overrideUsername;
+    public String getOverrideUsername() {
+        return overrideUsername;
+    }
+
+    public void setOverrideUsername(String overrideUsername) {
+        this.overrideUsername = overrideUsername;
     }
 
     /**
-     * @param overrideUsername The userName to set.
+     * @return Returns the userName.
      */
-    public final void setOverrideUsername(final String overrideUsername) {
-        this.overrideUsername = overrideUsername;
+    public String getUsername() {
+        if (overrideUsername != null && !overrideUsername.isEmpty()) {
+            return this.overrideUsername;
+        }
+        return this.username;
+    }
+
+    public String getAuthorizationUserName() {
+        return this.username;
+    }
+
+
+    public String toString() {
+        return "[username: " + this.username + "] overrideusername: " + this.overrideUsername + "]" ;
     }
 }

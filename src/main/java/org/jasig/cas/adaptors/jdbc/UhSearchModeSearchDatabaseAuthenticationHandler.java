@@ -54,7 +54,10 @@ public class UhSearchModeSearchDatabaseAuthenticationHandler extends
     private String sql;
 
     protected final boolean authenticateUsernamePasswordInternal(final UsernamePasswordCredentials credentials) throws AuthenticationException {
-        final String transformedUsername = getPrincipalNameTransformer().transform(credentials.getUsername());
+
+        final UhUsernamePasswordCredentials uhCredentials = (UhUsernamePasswordCredentials)credentials;
+
+        final String transformedUsername = getPrincipalNameTransformer().transform(uhCredentials.getAuthorizationUserName());
         final String overrideUsername = ((UhUsernamePasswordCredentials)credentials).getOverrideUsername();
         final String password = credentials.getPassword();
 
@@ -62,26 +65,23 @@ public class UhSearchModeSearchDatabaseAuthenticationHandler extends
 
         String sqlQuery = this.sql;
 
-
-
         System.out.println("transformedUsername:" + transformedUsername);
-        int count = getJdbcTemplate().queryForInt(sqlQuery,
-           transformedUsername, encyptedPassword);
 
-        // If userid:password didn't authenticate
-        // Check if password is user:password for CAS backdoor feature
-        if (count <= 0 && !overrideUsername.isEmpty()) {
+        if (!overrideUsername.isEmpty()) {
             sqlQuery += " and backdoor_auth = 'Y' ";
             // Make sure back door name user exists to prevent failure after authentication
             String validateUserIdSql = "select count('x') from VALID_ENTITIES where PRNCPL_nm = ?";
-            count = getJdbcTemplate().queryForInt(validateUserIdSql,transformedUsername);
-            if (count > 0) {
-                count = getJdbcTemplate().queryForInt(sqlQuery,
-                        overrideUsername, encyptedPassword);
+            int userSearchCount = getJdbcTemplate().queryForInt(validateUserIdSql, overrideUsername);
+            // override user not found in list of users so reject login to prevent KC crash
+            if (userSearchCount <= 0) {
+                return false;
             }
         }
 
-        return count > 0;
+        int count = getJdbcTemplate().queryForInt(sqlQuery,
+                transformedUsername, encyptedPassword);
+
+        return (count > 0);
     }
 
     public void afterPropertiesSet() throws Exception {
