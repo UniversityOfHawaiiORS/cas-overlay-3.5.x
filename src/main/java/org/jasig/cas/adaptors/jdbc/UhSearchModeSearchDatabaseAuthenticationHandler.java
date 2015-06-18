@@ -19,6 +19,7 @@
 package org.jasig.cas.adaptors.jdbc;
 
 import org.jasig.cas.authentication.handler.AuthenticationException;
+import org.jasig.cas.authentication.principal.UhUsernamePasswordCredentials;
 import org.jasig.cas.authentication.principal.UsernamePasswordCredentials;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -53,11 +54,11 @@ public class UhSearchModeSearchDatabaseAuthenticationHandler extends
     private String sql;
 
     protected final boolean authenticateUsernamePasswordInternal(final UsernamePasswordCredentials credentials) throws AuthenticationException {
-        String transformedUsername = getPrincipalNameTransformer().transform(credentials.getUsername());
+        final String transformedUsername = getPrincipalNameTransformer().transform(credentials.getUsername());
+        final String overrideUsername = ((UhUsernamePasswordCredentials)credentials).getOverrideUsername();
+        final String password = credentials.getPassword();
 
-        String password = credentials.getPassword();
-
-        String encyptedPassword = getPasswordEncoder().encode(password);
+        final String encyptedPassword = getPasswordEncoder().encode(password);
 
         String sqlQuery = this.sql;
 
@@ -69,19 +70,14 @@ public class UhSearchModeSearchDatabaseAuthenticationHandler extends
 
         // If userid:password didn't authenticate
         // Check if password is user:password for CAS backdoor feature
-        if (count <= 0 && password.contains(":")) {
-
-            String[] parts = password.split(":",2);
-            String backDoorUserName = parts[0];
-            password = parts[1];
+        if (count <= 0 && !overrideUsername.isEmpty()) {
             sqlQuery += " and backdoor_auth = 'Y' ";
-            encyptedPassword = getPasswordEncoder().encode(password);
             // Make sure back door name user exists to prevent failure after authentication
             String validateUserIdSql = "select count('x') from VALID_ENTITIES where PRNCPL_nm = ?";
             count = getJdbcTemplate().queryForInt(validateUserIdSql,transformedUsername);
             if (count > 0) {
                 count = getJdbcTemplate().queryForInt(sqlQuery,
-                        backDoorUserName, encyptedPassword);
+                        overrideUsername, encyptedPassword);
             }
         }
 
