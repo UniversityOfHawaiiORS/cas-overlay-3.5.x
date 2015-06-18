@@ -1,0 +1,5 @@
+testUserDb.Host=SomeHostname
+testUserDb.Port=SomeDbPort_1521_or_forwarded_port
+testUserDb.Name=SomeDbName
+testUserDb.Username=SomeUserName
+testUserDb.Password=SomePassword

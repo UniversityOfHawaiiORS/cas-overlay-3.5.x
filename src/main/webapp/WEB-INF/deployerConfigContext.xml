@@ -49,7 +49,11 @@
 		| AuthenticationManager here in the userConfigContext.xml so that you can see the things you will
 		| need to change in context.
 		+-->
-	<bean id="authenticationManager"
+
+    <bean id="uhPropertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="file:${user.home}/kuali/main/cas/uh_cas.properties" />
+
+    <bean id="authenticationManager"
 		class="org.jasig.cas.authentication.AuthenticationManagerImpl">
 		
 		<!-- Uncomment the metadata populator to allow clearpass to capture and cache the password
@@ -153,15 +157,16 @@
              <value>oracle.jdbc.driver.OracleDriver</value>
           </property>
           <property name="url">
-			  <value>jdbc:oracle:thin:@{replace with datbase machine url or localhost if port forwarding}:1521:kcdev</value>
+			  <value>jdbc:oracle:thin:@${testUserDb.Host}:${testUserDb.Port}:${testUserDb.Name}</value>
           </property>
           <property name="username">
-             <value>{replace with user test database username</value>
+             <value>${testUserDb.Username}</value>
           </property>
           <property name="password">
-             <value>{replace with user test database password}</value>
+             <value>${testUserDb.Password}</value>
           </property>
          </bean>
+
 
 	<!--
 	This bean defines the security roles for the Services Management application.  Simple deployments can use the in-memory version.
