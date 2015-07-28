@@ -1,0 +1,91 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="cas:war exploded">
+    <output-path>$PROJECT_DIR$/target/cas</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="cas" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.jasig.cas:cas-server-support-jdbc:3.6.0" />
+          <element id="library" level="project" name="Maven: org.jasig.cas:cas-server-core:3.6.0" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.15" />
+          <element id="library" level="project" name="Maven: com.github.inspektr:inspektr-audit:1.0.7.GA" />
+          <element id="library" level="project" name="Maven: com.github.inspektr:inspektr-common:1.0.7.GA" />
+          <element id="library" level="project" name="Maven: org.jasig.service.persondir:person-directory-impl:1.5.1" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.2" />
+          <element id="library" level="project" name="Maven: javax.xml.bind:jaxb-api:2.2" />
+          <element id="library" level="project" name="Maven: javax.xml.stream:stax-api:1.0-2" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.5" />
+          <element id="library" level="project" name="Maven: org.jasig.service.persondir:person-directory-api:1.5.1" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.4" />
+          <element id="library" level="project" name="Maven: jdom:jdom:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.1.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:3.1.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.1.0.Final" />
+          <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
+          <element id="library" level="project" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.0.Final" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.0.CR2" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.15.0-GA" />
+          <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.apache.santuario:xmlsec:1.4.3" />
+          <element id="library" level="project" name="Maven: org.opensaml:opensaml:2.5.1-1" />
+          <element id="library" level="project" name="Maven: org.opensaml:openws:1.4.2-1" />
+          <element id="library" level="project" name="Maven: org.opensaml:xmltooling:1.3.2-1" />
+          <element id="library" level="project" name="Maven: org.slf4j:jul-to-slf4j:1.6.1" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15:1.45" />
+          <element id="library" level="project" name="Maven: ca.juliusdavies:not-yet-commons-ssl:0.3.9" />
+          <element id="library" level="project" name="Maven: net.jcip:jcip-annotations:1.0" />
+          <element id="library" level="project" name="Maven: commons-httpclient:commons-httpclient:3.1" />
+          <element id="library" level="project" name="Maven: velocity:velocity:1.5" />
+          <element id="library" level="project" name="Maven: org.owasp.esapi:esapi:2.0GA" />
+          <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.4.01" />
+          <element id="library" level="project" name="Maven: xerces:xercesImpl:2.10.0" />
+          <element id="library" level="project" name="Maven: xml-resolver:xml-resolver:1.2" />
+          <element id="library" level="project" name="Maven: xalan:xalan:2.7.1" />
+          <element id="library" level="project" name="Maven: xalan:serializer:2.7.1" />
+          <element id="library" level="project" name="Maven: javax.xml:xmldsig:1.0" />
+          <element id="library" level="project" name="Maven: org.perf4j:perf4j:log4jonly:0.9.14" />
+          <element id="library" level="project" name="Maven: org.springframework.webflow:spring-webflow:2.3.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.webflow:spring-binding:2.3.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.webflow:spring-js:2.3.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.webflow:spring-js-resources:2.3.0.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-jexl:commons-jexl:1.1" />
+          <element id="library" level="project" name="Maven: junit:junit:3.8.1" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.0" />
+          <element id="library" level="project" name="Maven: joda-time:joda-time:2.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.6.10" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.10" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.0.0.GA" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.1" />
+          <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
+          <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
+          <element id="library" level="project" name="Maven: com.oracle:ojdbc6:11.2.0.3" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/cas/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="cas/web/Web" />
+    </root>
+  </artifact>
+</component>

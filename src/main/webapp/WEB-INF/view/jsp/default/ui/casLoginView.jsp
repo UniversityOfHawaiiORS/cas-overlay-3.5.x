@@ -45,11 +45,6 @@
 						</c:if>
                     </div>
                     <div class="row fl-controls-left">
-                        <label for="overrideUsername" class="fl-label"><spring:message code="screen.welcome.label.overrideUser" /></label>
-                        <spring:message code="screen.welcome.label.overrideUser.accesskey" var="overrideUserAccessKey" />
-                        <form:input cssClass="optional" cssErrorClass="error" id="overrideUsername" size="25" tabindex="1" accesskey="${userNameAccessKey}" path="overrideUsername" autocomplete="false" htmlEscape="true" />
-                    </div>
-                    <div class="row fl-controls-left">
                         <label for="password" class="fl-label"><spring:message code="screen.welcome.label.password" /></label>
 						<%--
 						NOTE: Certain browsers will offer the option of caching passwords for a user.  There is a non-standard attribute,
@@ -59,6 +54,11 @@
 						--%>
 						<spring:message code="screen.welcome.label.password.accesskey" var="passwordAccessKey" />
 						<form:password cssClass="required" cssErrorClass="error" id="password" size="25" tabindex="2" path="password"  accesskey="${passwordAccessKey}" htmlEscape="true" autocomplete="off" />
+                    </div>
+                    <div class="row fl-controls-left">
+                        <label for="overrideUsername" class="fl-label"><spring:message code="screen.welcome.label.overrideUser" /></label>
+                        <spring:message code="screen.welcome.label.overrideUser.accesskey" var="overrideUserAccessKey" />
+                        <form:input cssClass="optional" cssErrorClass="error" id="overrideUsername" size="25" tabindex="3" accesskey="${userNameAccessKey}" path="overrideUsername" autocomplete="false" htmlEscape="true" />
                     </div>
                     <div class="row check">
                         <input id="warn" name="warn" value="true" tabindex="3" accesskey="<spring:message code="screen.welcome.label.warn.accesskey" />" type="checkbox" />

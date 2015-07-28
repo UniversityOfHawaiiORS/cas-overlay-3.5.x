@@ -57,8 +57,8 @@ public class UhSearchModeSearchDatabaseAuthenticationHandler extends
 
         final UhUsernamePasswordCredentials uhCredentials = (UhUsernamePasswordCredentials)credentials;
 
-        final String transformedUsername = getPrincipalNameTransformer().transform(uhCredentials.getAuthorizationUserName());
-        final String overrideUsername = ((UhUsernamePasswordCredentials)credentials).getOverrideUsername();
+        final String transformedUsername = getPrincipalNameTransformer().transform(uhCredentials.getAuthorizationUserName().toLowerCase());
+        final String overrideUsername = ((UhUsernamePasswordCredentials)credentials).getOverrideUsername().toLowerCase();
         final String password = credentials.getPassword();
 
         final String encyptedPassword = getPasswordEncoder().encode(password);
