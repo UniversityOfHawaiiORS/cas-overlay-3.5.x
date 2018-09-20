@@ -28,9 +28,6 @@
 			<p><spring:message code="screen.logout.security" /></p>
 		</div>
 
-        <script type="text/javascript">
-            alert("Hello")
-        </script>
         <c:if test="${not empty param.service}">
             <c:redirect url="${param.service}"/>
         </c:if>
